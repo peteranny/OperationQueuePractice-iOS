@@ -25,7 +25,7 @@ class WebServiceAPIPracticeTests: XCTestCase {
         WebServiceAPI.shared.postCustomerName("Peter Shih") { data, error in
             XCTAssertNil(error)
             XCTAssertNotNil(data)
-            XCTAssertEqual(data?.form?["custname"] as? String, "Peter Shih")
+            XCTAssertEqual(data?.form?["custname"], "Peter Shih")
             expection.fulfill()
         }
         wait(for: [expection], timeout: 3)

@@ -21,7 +21,8 @@ class WebServiceAPI {
                 return
             }
             do {
-                let binData = try HTTPBinData(data: data!)
+                let decoder = JSONDecoder()
+                let binData = try decoder.decode(HTTPBinData.self, from: data!)
                 callback(binData, nil)
             } catch {
                 callback(nil, error)
@@ -40,7 +41,8 @@ class WebServiceAPI {
                 return
             }
             do {
-                let binData = try HTTPBinData(data: data!)
+                let decoder = JSONDecoder()
+                let binData = try decoder.decode(HTTPBinData.self, from: data!)
                 callback(binData, nil)
             } catch {
                 callback(nil, error)
