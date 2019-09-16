@@ -10,12 +10,21 @@ import UIKit
 
 class WebServiceAPI {
     static let shared = WebServiceAPI()
+    
+    var currentTask: URLSessionDataTask? = nil {
+        willSet {
+            currentTask?.cancel()
+        }
+        didSet {
+            currentTask?.resume()
+        }
+    }
 
     private init() {}
-
+    
     func fetchGetResponse(_ callback: @escaping (HTTPBinData?, Error?) -> ()) {
         let url = URL(string: "http://httpbin.org/get")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        currentTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 callback(nil, error!)
                 return
@@ -27,7 +36,7 @@ class WebServiceAPI {
             } catch {
                 callback(nil, error)
             }
-        }.resume()
+        }
     }
 
     func postCustomerName(_ name: String, _ callback: @escaping (HTTPBinData?, Error?) -> ()) {
@@ -35,7 +44,7 @@ class WebServiceAPI {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.httpBody = "custname=\(name)".data(using: .utf8)
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        currentTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 callback(nil, error!)
                 return
@@ -47,18 +56,18 @@ class WebServiceAPI {
             } catch {
                 callback(nil, error)
             }
-        }.resume()
+        }
     }
 
     func fetchImage(_ callback: @escaping (UIImage?, Error?) -> ()) {
         let url = URL(string: "http://httpbin.org/image/png")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        currentTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 callback(nil, error!)
                 return
             }
             let image = UIImage(data: data!)
             callback(image, nil)
-        }.resume()
+        }
     }
 }

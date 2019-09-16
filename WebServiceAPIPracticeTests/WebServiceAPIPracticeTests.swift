@@ -40,4 +40,18 @@ class WebServiceAPIPracticeTests: XCTestCase {
         }
         wait(for: [expection], timeout: 3)
     }
+
+    func testCancellableAPI() {
+        let expection1 = XCTestExpectation()
+        WebServiceAPI.shared.fetchGetResponse { data, error in
+            XCTAssertEqual(error?.localizedDescription, "cancelled")
+            expection1.fulfill()
+        }
+        let expection2 = XCTestExpectation()
+        WebServiceAPI.shared.fetchGetResponse { data, error in
+            XCTAssertNil(error)
+            expection2.fulfill()
+        }
+        wait(for: [expection1, expection2], timeout: 3)
+    }
 }
