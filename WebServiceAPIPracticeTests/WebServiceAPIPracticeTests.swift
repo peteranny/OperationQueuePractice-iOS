@@ -54,4 +54,39 @@ class WebServiceAPIPracticeTests: XCTestCase {
         }
         wait(for: [expection1, expection2], timeout: 3)
     }
+    
+    var expection31: XCTestExpectation!
+    var expection32: XCTestExpectation!
+    var expection33: XCTestExpectation!
+    var expectionSuccess: XCTestExpectation!
+
+    func testHTTPBinDataManager() {
+        self.expection31 = XCTestExpectation()
+        self.expection32 = XCTestExpectation()
+        self.expection33 = XCTestExpectation()
+        self.expectionSuccess = XCTestExpectation()
+        HTTPBinDataManager.shared.delegate = self
+        HTTPBinDataManager.shared.executeOperation()
+        wait(for: [expection31, expection32, expection33, expectionSuccess], timeout: 3)
+    }
+}
+
+extension WebServiceAPIPracticeTests: HTTPBinDataManagerDelegate {
+    func manager(_ manager: HTTPBinDataManager, withProgress progress: Float) {
+        if progress == 1.0/3 {
+            expection31.fulfill()
+        } else if progress == 2.0/3 {
+            expection32.fulfill()
+        } else if progress == 1 {
+            expection33.fulfill()
+        }
+    }
+    
+    func manager(_ manager: HTTPBinDataManager, didFailWith error: Error) {
+        
+    }
+    
+    func manager(_ manager: HTTPBinDataManager, didSucceedWithGetResponse getResponse: Any, postResponse: Any, image: UIImage) {
+        expectionSuccess.fulfill()
+    }
 }

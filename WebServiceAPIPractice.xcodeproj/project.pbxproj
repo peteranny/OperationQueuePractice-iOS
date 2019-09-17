@@ -13,6 +13,8 @@
 		BA6883DA232F29A700AC244F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA6883D9232F29A700AC244F /* Assets.xcassets */; };
 		BA6883DD232F29A700AC244F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6883DB232F29A700AC244F /* LaunchScreen.storyboard */; };
 		BA6883E8232F29A700AC244F /* WebServiceAPIPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6883E7232F29A700AC244F /* WebServiceAPIPracticeTests.swift */; };
+		BA701B1A2330DC8A006B05FC /* HTTPBinDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA701B192330DC8A006B05FC /* HTTPBinDataManager.swift */; };
+		BA701B1C2330DD84006B05FC /* HTTPBinDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA701B1B2330DD84006B05FC /* HTTPBinDataOperation.swift */; };
 		BA89BE49232F2A1600B3FF20 /* WebServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89BE48232F2A1600B3FF20 /* WebServiceAPI.swift */; };
 		BA89BE4C232F32E700B3FF20 /* HTTPBinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89BE4B232F32E700B3FF20 /* HTTPBinData.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		BA6883E3232F29A700AC244F /* WebServiceAPIPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebServiceAPIPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6883E7232F29A700AC244F /* WebServiceAPIPracticeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceAPIPracticeTests.swift; sourceTree = "<group>"; };
 		BA6883E9232F29A700AC244F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA701B192330DC8A006B05FC /* HTTPBinDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBinDataManager.swift; sourceTree = "<group>"; };
+		BA701B1B2330DD84006B05FC /* HTTPBinDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBinDataOperation.swift; sourceTree = "<group>"; };
 		BA89BE48232F2A1600B3FF20 /* WebServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceAPI.swift; sourceTree = "<group>"; };
 		BA89BE4B232F32E700B3FF20 /* HTTPBinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPBinData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				BA89BE4B232F32E700B3FF20 /* HTTPBinData.swift */,
+				BA701B192330DC8A006B05FC /* HTTPBinDataManager.swift */,
+				BA701B1B2330DD84006B05FC /* HTTPBinDataOperation.swift */,
 				BA89BE48232F2A1600B3FF20 /* WebServiceAPI.swift */,
 			);
 			path = DataProvider;
@@ -212,8 +218,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6883D5232F29A400AC244F /* ViewController.swift in Sources */,
+				BA701B1C2330DD84006B05FC /* HTTPBinDataOperation.swift in Sources */,
 				BA6883D3232F29A400AC244F /* AppDelegate.swift in Sources */,
 				BA89BE4C232F32E700B3FF20 /* HTTPBinData.swift in Sources */,
+				BA701B1A2330DC8A006B05FC /* HTTPBinDataManager.swift in Sources */,
 				BA89BE49232F2A1600B3FF20 /* WebServiceAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
